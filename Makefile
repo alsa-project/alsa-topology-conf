@@ -3,13 +3,14 @@
 # Requires the alsatplg tool (alsa-utils)
 #
 
+SRCPATH ?= .
 FWPATH ?= /lib/firmware
 
 targets = $(FWPATH)/skl_hda_dsp_generic-tplg.bin
 
 all: firmware
 
-$(FWPATH)/skl_hda_dsp_generic-tplg.bin: topology/hda-dsp/skl_hda_dsp_generic-tplg.conf
+$(FWPATH)/skl_hda_dsp_generic-tplg.bin: $(SRCPATH)/topology/hda-dsp/skl_hda_dsp_generic-tplg.conf
 	alsatplg -c $< -o $@
 
 .DUMMY: firmware
